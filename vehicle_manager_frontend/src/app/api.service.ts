@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { vehicle } from './interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +18,17 @@ export class ApiService {
     return this.httpClient.post<any>(this.API_URL + '/login/', body);
   }
 
-  getVehicles(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.API_URL + '/vehicle/');
+  getVehicles(): Observable<vehicle[]> {
+    return this.httpClient.get<vehicle[]>(this.API_URL + '/vehicle/');
   }
 
-  createVehicle(body: any): Observable<any> {
+  createVehicle(body: any) {
     return this.httpClient.post(this.API_URL + '/vehicle/', body, {
       headers: this.getHeader()
     });
   }
 
-  updateVehicle(id: string, body: any): Observable<any> {
+  updateVehicle(id: string, body: any) {
     return this.httpClient.put(this.API_URL + `/vehicle/${id}/`, body, {
       headers: this.getHeader()
     });
