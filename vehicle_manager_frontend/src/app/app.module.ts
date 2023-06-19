@@ -9,10 +9,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { NewVehicleComponent } from './new-vehicle/new-vehicle.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'vehicle', component: NewVehicleComponent }
 ];
 
 @NgModule({
@@ -21,12 +24,14 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NewVehicleComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
 
     RouterModule.forRoot(
       appRoutes,
