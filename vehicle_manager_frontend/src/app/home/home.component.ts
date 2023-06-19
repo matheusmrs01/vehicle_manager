@@ -8,18 +8,16 @@ import { ApiService } from '../api.service';
 })
 export class HomeComponent implements OnInit {
   vehicles: any[] = [];
-  user = null;
+  user = '';
 
   constructor(
     private apiService: ApiService
   ) {}
 
   ngOnInit() {
-    this.apiService.getVehicles().subscribe((result) => {
-      this.vehicles = result
-      console.log(result);
-    }, error => {
-      console.log(error)
-    });
+    this.user = localStorage.getItem('vehicleManagerToken') as string;
+    this.apiService.getVehicles().subscribe(res => {
+      this.vehicles = res;
+    })
   }
 }
