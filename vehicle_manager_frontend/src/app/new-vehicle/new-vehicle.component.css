@@ -1,0 +1,11 @@
+.formContainer {
+  width: 50%;
+  height: 600px;
+  position: relative;
+  left: 25%;
+}
+
+.editForm {
+  position: relative;
+  top: 30%;
+}
